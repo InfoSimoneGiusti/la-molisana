@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MyHeader/>
+    <MyProducts/>
+    <MyFooter/>
+
+    <div class='provaCentratura'>PROVA</div>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import MyHeader from './components/MyHeader';
+import MyProducts from './components/MyProducts';
+import MyFooter from './components/MyFooter';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MyHeader,
+    MyProducts,
+    MyFooter
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+  @import './styles/general.scss';
+  @import './styles/vars.scss';
+  @import './styles/typo.scss';
+  @import './styles/utilities.scss';
+  @import '~bootstrap/scss/bootstrap.scss';
+
+  @import './styles/mixins.scss';
+
+  h1, h2, h3, h4, h5, h6 {
+      color: $brand_color;
+  }
+
+  .provaCentratura {
+    background: grey;
+    height: 400px;
+    @include centra('orizzontale');
+  }
 </style>

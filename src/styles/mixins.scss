@@ -1,0 +1,14 @@
+@mixin centra($tipo: 'entrambi') {
+
+    display: flex;
+
+    @if $tipo == 'verticale' {
+        align-items: center;
+    } @else if $tipo == 'orizzontale' {
+        justify-content: center;
+    } @else if $tipo == 'entrambi' {
+        align-items: center;
+        justify-content: center;
+    }
+
+}
