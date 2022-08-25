@@ -1,11 +1,8 @@
 <template>
   <div id="app">
-    <MyHeader/>
+    <MyHeader :pincopallino="links" />
     <MyProducts/>
     <MyFooter/>
-
-    <div class='provaCentratura'>PROVA</div>
-
   </div>
 </template>
 
@@ -21,6 +18,37 @@ export default {
     MyHeader,
     MyProducts,
     MyFooter
+  },
+  data() {
+    return {
+      links: [
+                {
+                    text: 'Home',
+                    url: '#',
+                    active: false
+                },
+                {
+                    text: 'Prodotti',
+                    url: '#',
+                    active: true
+                },
+                {
+                    text: 'Chi Siamo',
+                    url: '#',
+                    active: false
+                },
+                {
+                    text: 'Contatti',
+                    url: '#',
+                    active: false
+                },
+                {
+                    text: 'Blog',
+                    url: '#',
+                    active: false
+                }
+            ]
+    }
   }
 }
 </script>
@@ -31,7 +59,7 @@ export default {
   @import './styles/vars.scss';
   @import './styles/typo.scss';
   @import './styles/utilities.scss';
-  @import '~bootstrap/scss/bootstrap.scss';
+  //@import '~bootstrap/scss/bootstrap.scss';
 
   @import './styles/mixins.scss';
 
@@ -39,9 +67,9 @@ export default {
       color: $brand_color;
   }
 
-  .provaCentratura {
+  /*.provaCentratura {
     background: grey;
     height: 400px;
     @include centra('orizzontale');
-  }
+  }*/
 </style>

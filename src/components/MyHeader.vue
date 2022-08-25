@@ -3,7 +3,7 @@
     <img src="@/assets/images/la-molisana-logo.png">
     <nav>
         <ul>
-            <li v-for="(link, index) in links" :key="index" >
+            <li v-for="(link, index) in pincopallino" :key="index" >
                 <a :href="link.url" :class="link.active?'active':''" >{{link.text}}</a>
             </li>
         </ul>
@@ -14,36 +14,8 @@
 <script>
 export default {
     name: 'MyHeader',
-    data() {
-        return {
-            links: [
-                {
-                    text: 'Home',
-                    url: '#',
-                    active: false
-                },
-                {
-                    text: 'Prodotti',
-                    url: '#',
-                    active: true
-                },
-                {
-                    text: 'Chi Siamo',
-                    url: '#',
-                    active: false
-                },
-                {
-                    text: 'Contatti',
-                    url: '#',
-                    active: false
-                },
-                {
-                    text: 'Blog',
-                    url: '#',
-                    active: false
-                }
-            ]
-        }
+    props: {
+        pincopallino: Array
     }
 }
 </script>
@@ -54,6 +26,7 @@ export default {
 
     header {
         text-align: center;
+        padding-bottom:20px;
 
         ul {
             list-style: none;
@@ -61,7 +34,7 @@ export default {
 
             li {
                 display: inline-block;
-                margin: 0px 10px;
+                margin: 0px 5px;
 
                 a {
 

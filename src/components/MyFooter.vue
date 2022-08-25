@@ -1,67 +1,101 @@
 <template>
     <footer>
 
-        <div class="d-flex container">
-            <a href="#">
-                <img src="@/assets/images/la-molisana-logo.png" />
+        <div class="cols container">
+            <a href="#" class="footer-logo">
+                <img :src="require('../assets/images/la-molisana-logo.png')" />
             </a>
 
-            <div class="footer-links">
-                <h4>PASTIFICIO</h4>
-                <ul>
-                    <li>
-                        <a href="#">Il Pastificio</a>
-                    </li>
-                    <li>
-                        <a href="#">Grano</a>
-                    </li>
-                    <li>
-                        <a href="#">Filiera</a>
-                    </li>
-                    <li>
-                        <a href="#">100 anni di pasta</a>
-                    </li>
-                    <li>
-                        <a href="#">Sartoria della pasta</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="footer-links">
-                <h4>PRODOTTI</h4>
-                <ul>
-                    <li>
-                        <a href="#">Le classiche</a>
-                    </li>
-                    <li>
-                        <a href="#">Le integrali</a>
-                    </li>
-                    <li>
-                        <a href="#">Le speciali</a>
-                    </li>
-                    <li>
-                        <a href="#">Le biologiche</a>
-                    </li>
-                    <li>
-                        <a href="#">Senza glutine</a>
-                    </li>
-                </ul>
-            </div>
-
+            <FooterMenu :title="'PASTIFICIO'" :urls="pastificioUrls" />
+            <FooterMenu :title="'PRODOTTI'" :urls="prodottiUrls" />
+           
         </div>    
 
-        <img src='@/assets/images/footer-montagne-bottom.jpg' />
+        <img class="footer-img" src='@/assets/images/footer-montagne-bottom.jpg' />
     </footer>
 </template>
 
 <script>
+
+import FooterMenu from './FooterMenu.vue';
+
 export default {
-    name: 'MyFooter'
+    name: 'MyFooter',
+    components: {
+        FooterMenu
+    },
+    data() {
+        return {
+            pastificioUrls: [
+                                {
+                                    url: '#',
+                                    text: 'Il Pastificio'
+                                },
+                                {
+                                    url: '#',
+                                    text: 'Grano'
+                                },
+                                {
+                                    url: '#',
+                                    text: 'Filiera'
+                                },
+                                {
+                                    url: '#',
+                                    text: '100 anni di pasta'
+                                },
+                                {
+                                    url: '#',
+                                    text: 'Sartoria della pasta'
+                                },
+                                {
+                                    url: '#',
+                                    text: 'Bla Bla Bla'
+                                },
+                            ],
+            prodottiUrls: [
+                                {
+                                    url: '#',
+                                    text: 'Le classiche'
+                                },
+                                {
+                                    url: '#',
+                                    text: 'Le integrali'
+                                },
+                                {
+                                    url: '#',
+                                    text: 'Le speciali'
+                                },
+                                {
+                                    url: '#',
+                                    text: 'Le biologiche'
+                                },
+                                {
+                                    url: '#',
+                                    text: 'Senza glutine'
+                                },
+                            ]
+        }
+    }
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
-   
+    @import '../styles/mixins.scss';
+
+    .footer-img {
+        max-width: 100%;
+    }
+    .cols {
+        @include centra('orizzontale');
+
+        .footer-logo {
+            margin: 5rem 0 2rem;
+        }
+        .footer-links {
+            margin: 5rem 5rem 2rem 5rem;
+        }
+        
+    }
 
 </style>
